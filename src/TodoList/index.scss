@@ -1,0 +1,85 @@
+@mixin btn-success-style() {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+@mixin btn-fail-style() {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.todo-title {
+    text-align: center;
+}
+
+.todo-input-section {
+    display: flex;
+    margin-bottom: 10px;
+    margin: 10px;
+
+    .todo-add-input{
+        flex: 1;
+        padding: 10px;
+    }
+
+    .todo-add-btn{
+        @include btn-success-style()
+    }
+}
+
+.todo-content {
+    list-style: none;
+    padding: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    border-bottom: 1px solid #ccc;
+    max-width: 100%;
+}
+
+.todo-item span{
+    width: 166px;
+    flex: 1;
+    word-break: break-all;
+    max-width: 100%;
+    margin-left: 10px;
+}
+.todo-edit-input {
+    width: 166px;
+    padding: 10px 0;
+    margin-left: 10px;
+    flex: 1;
+}
+
+.todo-edit-btn {
+    @include btn-success-style();
+}
+
+.todo-delete-btn {
+    @include btn-fail-style();
+}
+
+.todo-save-btn {
+    @include btn-success-style();
+}
+
+.todo-cancel-btn {
+    @include btn-fail-style();
+}
