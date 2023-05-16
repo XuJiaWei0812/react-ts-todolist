@@ -1,26 +1,28 @@
-interface itemProps {
+import { useItemHandle } from './handler';
+
+interface ItemProps {
     index: number;
     value: string;
-    editIndex: number;
-    editValue: string;
-    editInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    saveEditTodo: () => void;
-    cancelEdit: () => void;
-    editTodo: (index: number) => void;
-    deleteTodo: (index: number) => void;
+    todos: string[];
+    setTodos: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-const Item: React.FC<itemProps> = ({
+const Item: React.FC<ItemProps> = ({
     index,
     value,
-    editIndex,
-    editValue,
-    editInputChange,
-    saveEditTodo,
-    cancelEdit,
-    editTodo,
-    deleteTodo
+    todos, 
+    setTodos
 }) => {
+    const {
+        editIndex, setEditIndex,
+        editValue, setEditValue,
+        deleteTodo,
+        editTodo,
+        editInputChange,
+        saveEditTodo,
+        cancelEdit
+    } = useItemHandle(todos,setTodos);
+
     return (
         <li className="todo-item" key={index}>
             {/* 編輯的index如果等於待辦事項的index就顯示編輯 */}

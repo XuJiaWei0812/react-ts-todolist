@@ -2,24 +2,15 @@ import './index.scss';
 import { useHandle } from './handler';
 import Item from './component/Item'
 
-const TodoList = () => {
+const TodoList: React.FC = () => {
 
     const {
         todos, setTodos,
         inputValue, setInputValue,
-        editIndex, setEditIndex,
-        editValue, setEditValue,
         inputChange,
         inputKeyDown,
         addTodo,
-        deleteTodo,
-        editTodo,
-        editInputChange,
-        saveEditTodo,
-        cancelEdit
     } = useHandle()
-
-
 
     return (
         <div className='container'>
@@ -36,13 +27,9 @@ const TodoList = () => {
                         key={index}
                         index={index}
                         value={value}
-                        editIndex={editIndex}
-                        editValue={editValue}
-                        editInputChange={editInputChange}
-                        saveEditTodo={saveEditTodo}
-                        cancelEdit={cancelEdit}
-                        editTodo={editTodo}
-                        deleteTodo={deleteTodo} />
+                        todos={todos}
+                        setTodos={setTodos}
+                    />
                 ))}
             </ul>
         </div>
